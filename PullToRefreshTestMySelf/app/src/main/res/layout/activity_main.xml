@@ -11,8 +11,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.administrator.pulltorefreshtestmyself.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+    <com.example.administrator.pulltorefreshtestmyself.RefreshableView
+        android:id="@+id/refreshable_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </ListView>
+
+    </com.example.administrator.pulltorefreshtestmyself.RefreshableView>
+
 </RelativeLayout>
