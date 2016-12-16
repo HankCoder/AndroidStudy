@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -372,8 +373,9 @@ public class RefreshableView extends LinearLayout implements View.OnTouchListene
                     topMargin = 0;
                     break;
                 }
+                Log.e("RefreshableView", "topMargin: " + topMargin);
                 publishProgress(topMargin);
-                sleep(10);
+                sleep(1000);
             }
             currentStatus = STATUS_REFRESHING;
             publishProgress(0);

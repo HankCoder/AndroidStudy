@@ -2,6 +2,7 @@ package com.example.administrator.pulltorefreshtestmyself;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         mRefreshableView.setOnRefreshListener(new RefreshableView.PullToRefreshListener() {
             @Override
             public void onRefresh() {
-
+                Log.e("MainActivity", "onRefresh");
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
