@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.example.administrator.viewselfdefine">
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18"/>
+
+    <uses-feature android:name="android.hardware.camera2"
+                  android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".fragment.CrimeListActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".fragment.CrimePagerActivity"
+            android:label="TEST"
+            android:parentActivityName=".fragment.CrimeListActivity">
+        </activity>
+
+        <receiver android:name=".broadcast.TestBroadcast">
+            <intent-filter>
+                <action android:name="setting_event_update_cache_size_describe"/>
+            </intent-filter>
+        </receiver>
+
+        <!--<activity android:name=".service.TestIntentServiceActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity android:name=".assest.beatbox.BeatBoxActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service android:name=".service.IntentServiceDemo"/>
+    </application>
+
+</manifest>

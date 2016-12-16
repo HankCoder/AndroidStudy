@@ -1,0 +1,41 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        // The next repo is only needed while using SNAPSHOT versions
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath "net.saliman:gradle-cobertura-plugin:2.3.2"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id 'net.saliman.cobertura' version '2.3.2'
+}
+apply plugin: 'net.saliman.cobertura'
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+dependencies {
+    testRuntime "org.slf4j:slf4j-api:1.7.10"
+}
+
+cobertura {
+    rootProject.subprojects.each {
+        coverageDirs << file("${it.name}/build/classes/main")
+    }
+}
